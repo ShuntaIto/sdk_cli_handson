@@ -1,0 +1,5 @@
+$schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
+type: uri_file
+name: aml-cli-handson-train-data
+description: taxi trip records training set
+path: ../data/nyc_taxi_dataset_train.csv

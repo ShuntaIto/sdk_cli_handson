@@ -1,0 +1,18 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+code: ../script/
+command: >-
+  python build_model.py --input_train_data ${{inputs.train_data}} --input_valid_data ${{inputs.valid_data}}
+
+environment: azureml:aml-cli-handson-sklearn@latest
+inputs:
+  train_data:
+    type: uri_file
+    path: azureml:aml-cli-handson-train-data@latest
+  valid_data:
+    type: uri_file
+    path: azureml:aml-cli-handson-valid-data@latest
+compute: azureml:cpu-cluster
+experiment_name: aml-cli-handson-sklearn-job
+description: nyc taxi dataset regression
+limits:
+  timeout: 300
